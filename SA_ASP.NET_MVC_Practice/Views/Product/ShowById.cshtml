@@ -1,0 +1,33 @@
+﻿@model SA_ASP.NET_MVC_Practice.Models.Product
+
+@{
+    ViewBag.Title = "Show product by Product Id";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm("ShowById", "Product", FormMethod.Post))
+{
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProductId, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.ProductId)
+                @Html.ValidationMessageFor(m => m.ProductId);
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Show product" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
