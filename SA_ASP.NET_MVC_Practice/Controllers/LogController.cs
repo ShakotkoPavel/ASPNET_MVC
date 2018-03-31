@@ -31,11 +31,10 @@ namespace SA_ASP.NET_MVC_Practice.Controllers
             Log log = db.Logs.Find(id);
             if (log == null)
             {
-                return ViewBag.Message = "Log is not found";
+                return HttpNotFound();
             }
             return View(log);
         }
-
 
         // GET: Log/Delete/5
         public ActionResult Delete(int? id)

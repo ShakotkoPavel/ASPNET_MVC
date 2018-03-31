@@ -1,33 +1,144 @@
 ﻿@model SA_ASP.NET_MVC_Practice.Models.Product
 
 @{
-    ViewBag.Title = "Show product by Product Id";
+    ViewBag.Title = "Details of product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-
-@using (Html.BeginForm("ShowById", "Product", FormMethod.Post))
-{
-
-    <div class="form-horizontal">
+<div>
+    @if (Model != null)
+    {
         <hr />
-        <div class="form-group">
-            @Html.LabelFor(m => m.ProductId, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.ProductId)
-                @Html.ValidationMessageFor(m => m.ProductId)
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductType)
+            </dd>
+
+            <dt>
+                <u><b>Details of product:</b></u>
+            </dt>
+
+            <dd>
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductDetails.Heigth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductDetails.Heigth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductDetails.Lenth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductDetails.Lenth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductDetails.Width)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductDetails.Width)
+            </dd>
+
+        </dl>
+    }
+    else
+    {
+        using (Html.BeginForm("ShowById", "Product", FormMethod.Post))
+        {
+        <div class="form-horizontal">
+            <hr />
+            <h3>@ViewBag.Message</h3>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ProductId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.ProductId)
+                    @Html.ValidationMessageFor(m => m.ProductId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Show product" class="btn btn-default" />
+                </div>
             </div>
         </div>
+        }
+    }
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ShowList")
+</p>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Show product" class="btn btn-default" />
+
+
+
+
+@*@model SA_ASP.NET_MVC_Practice.Models.Product
+
+    @{
+        ViewBag.Title = "Show product by Product Id";
+    }
+
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+
+    @using (Html.BeginForm("ShowById", "Product", FormMethod.Post))
+    {
+
+        <div class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(m => m.ProductId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.ProductId)
+                    @Html.ValidationMessageFor(m => m.ProductId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Show product" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
-}
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

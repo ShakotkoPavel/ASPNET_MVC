@@ -23,6 +23,7 @@ namespace SA_ASP.NET_MVC_Practice.Controllers
         {
             if (product.ProductId > default(int) && !string.IsNullOrEmpty(product.Name) && product.Price > default(decimal))
             {
+
                 context.Products.Add(new Product
                 {
                     ProductId = product.ProductId,
@@ -47,24 +48,27 @@ namespace SA_ASP.NET_MVC_Practice.Controllers
         [MyExeptionFilter]
         public ActionResult ShowById(int? productId)
         {
-            if (productId.HasValue)
-            {
-                var product = new Context().Products.Find(productId);
-                if (product != null)
+            //if (ModelState.IsValid)
+            //{
+                if (productId.HasValue)
                 {
-                    ViewBag.Message = $"Product Id = {product.ProductId}, Name = {product.Name}, Price = {product.Price}, Type = {product.ProductType.ToString()}. " +
-                        $"Details: Length = {product.ProductDetails.Lenth}" +
-                        $" Heigth = {product.ProductDetails.Heigth}" +
-                        $" Width = {product.ProductDetails.Width}";
+                    var product = new Context().Products.Find(productId);
+                    if (product != null)
+                    {
+                        return View(product);
+                        //ViewBag.Message = $"Product Id = {product.ProductId}, Name = {product.Name}, Price = {product.Price}, Type = {product.ProductType.ToString()}. " +
+                        //    $"Details: Length = {product.ProductDetails.Lenth}" +
+                        //    $" Heigth = {product.ProductDetails.Heigth}" +
+                        //    $" Width = {product.ProductDetails.Width}";
+                    }
+                    else
+                    {
+                        //TODO Fixed this exception
+                        //throw new ProductIsNotFoundByIdException($"We haven`t found product by Id#{productId}");
+                        ViewBag.Message = $"The product by Id - {productId} was not found!";
+                    }
                 }
-                else
-                {
-                    //TODO Fixed this exception
-                    //throw new ProductIsNotFoundByIdException($"We haven`t found product by Id#{productId}");
-
-                    ViewBag.Message = $"We haven`t found product by Id#{productId}";
-                }
-            }
+            //}
 
             return View();
         }
