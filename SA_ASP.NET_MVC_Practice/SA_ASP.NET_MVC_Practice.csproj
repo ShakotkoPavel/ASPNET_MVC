@@ -152,7 +152,8 @@
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\MyActionFilterAttribute.cs" />
-    <Compile Include="Filters\MyExeption.cs" />
+    <Compile Include="Filters\MyExeptionFilterAttribute.cs" />
+    <Compile Include="Filters\MyOwnExeption.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

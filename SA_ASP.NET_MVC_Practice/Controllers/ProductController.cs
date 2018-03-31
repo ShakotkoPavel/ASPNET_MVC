@@ -44,6 +44,7 @@ namespace SA_ASP.NET_MVC_Practice.Controllers
         }
 
         [MyActionFilter]
+        [MyExeptionFilter]
         public ActionResult ShowById(int? productId)
         {
             if (productId.HasValue)
@@ -58,6 +59,9 @@ namespace SA_ASP.NET_MVC_Practice.Controllers
                 }
                 else
                 {
+                    //TODO Fixed this exception
+                    //throw new ProductIsNotFoundByIdException($"We haven`t found product by Id#{productId}");
+
                     ViewBag.Message = $"We haven`t found product by Id#{productId}";
                 }
             }
