@@ -22,7 +22,7 @@
         @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name, "Enter field Name")
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
     </div>
 
@@ -41,28 +41,35 @@
         </div>
     </div>
 
-    <h3>Details of product</h3>
-    
     <div class="form-group">
-            @Html.LabelFor(m => m.ProductDetails.Heigth, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.ProductDetails.Heigth)
-            </div>
+        @Html.LabelFor(m => m.ProductType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(m => m.ProductType)
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.ProductDetails.Lenth, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.ProductDetails.Lenth)
-            </div>
-        </div>
+    <h3>Details of product</h3>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.ProductDetails.Width, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.ProductDetails.Width)
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductDetails.Heigth, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.ProductDetails.Heigth)
         </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductDetails.Lenth, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.ProductDetails.Lenth)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductDetails.Width, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.ProductDetails.Width)
+        </div>
+    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

@@ -23,6 +23,7 @@ namespace SA_ASP.NET_MVC_Practice.Models
         public int ProductId { get; set; }
 
         [Required]
+        [Remote("Check", "Product", ErrorMessage = "Name is not correct")]
         public string Name { get; set; }
 
         [Required]
@@ -48,12 +49,5 @@ namespace SA_ASP.NET_MVC_Practice.Models
         public int Width { get; set; }
 
         public int Heigth { get; set; }
-    }
-
-    public class Context : DbContext
-    {
-        public Context() : base("Database") { }
-
-        public DbSet<Product> Products { get; set; }
     }
 }
